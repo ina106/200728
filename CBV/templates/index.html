@@ -10,11 +10,17 @@
 <body>
     <div class="top">
         <div class="title"> 글남기는곳 </div>
-        <div class="search"> 검색창 
+        <div class="search">
             <form action="{% url 'result' %}" method="GET">
-        검색: <input type="text" name="query" value="{{query}}" placeholder="검색해보자"> 
-        </form>
-    </div>
+                <input type="text" name="query" value="{{query}}" placeholder="검색어 입력"> 
+            </form>
+            <select>
+                <option value="1"> 전체검색 </option>
+                <option value="2"> 제목검색 </option>
+                <option value="3"> 내용검색 </option>
+                <option value="4"> 글쓴이검색 </option>
+            </select>
+        </div>
         <div class="user"> 사용자 정보 </div>
     </div>
 

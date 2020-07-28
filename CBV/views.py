@@ -37,7 +37,7 @@ class create(CreateView):
 
     def form_valid(self,form):
         Blog = form.save(commit=False)
-        Blog.author = self.request.User
+        Blog.author = self.request.user
         Blog.save()
 
         return HttpResponseRedirect(self.request.POST.get('next','/'))
@@ -49,4 +49,4 @@ def result(request):
 
     if query:
         BlogPosts = BlogPosts.filter(Q(title__icontains=query)| Q(text__icontains=query)).order_by('-time')
-    return render(request, 'result.html',{'BlogPosts':BlogPosts, 'query':query})
+        return render(request, 'result.html',{'BlogPosts':BlogPosts, 'query':query})
