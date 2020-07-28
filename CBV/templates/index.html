@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+</head>
+<body>
+    <div class="top">
+        <div class="title"> 글남기는곳 </div>
+        <div class="search"> 검색창 
+            <form action="{% url 'result' %}" method="GET">
+        검색: <input type="text" name="query" value="{{query}}" placeholder="검색해보자"> 
+        </form>
+    </div>
+        <div class="user"> 사용자 정보 </div>
+    </div>
+
+    
+
+    <div class="list">
+    {% for i in blog_list %}
+    <a href="{% url 'detail' i.id %}">
+        <h3>*title {{i.title}}</h3>
+        <p>*author {{i.author}}</p>
+    </a>
+    ---------------------------------
+    {% endfor %}
+    </div>
+
+    <div class="new">
+        <button> <a href="{% url 'create' %}">새글 쓰기</a></button>
+    </div>
+
+</body>
+</html>

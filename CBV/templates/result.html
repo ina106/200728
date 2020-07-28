@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+</head>
+<body>
+    <div class="top">
+        <div class="title"> <a href="{% url 'index' %}"> 글남기는곳 </a></div>
+        <div class="search"> 검색창 
+            <form action="{% url 'result' %}" method="GET">
+        검색: <input type="text" name="query" value="{{query}}" placeholder="검색해보자"> 
+        </form>
+    </div>
+        <div class="user"> 사용자 정보 </div>
+    </div>
+    <p>"{{query}}"에 대한 결과는 다음과 같습니다.</p>
+    <br>
+    {% for post in BlogPosts %}
+        <p>제목:{{post.title}}</p>
+        <p>내용:{{post.text}}</p>
+        <p>글쓴이:{{post.author}}</p>
+    {% endfor %}
+
+
+</body>
+</html>

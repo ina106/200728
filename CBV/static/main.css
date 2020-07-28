@@ -1,0 +1,41 @@
+html,body{
+    display: flex;
+    flex-direction: column;
+}
+
+.top{
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+    padding: 30px;
+}
+
+.title{
+    flex: 0.3;
+    font-size: larger;
+    font-style: italic;
+    
+}
+
+.search{
+    flex: 0.3;
+}
+
+.user{
+    flex: 0.3;
+    text-align: right;
+}
+
+.list{
+    /* height: 400px; */
+    width: 1000px;
+    background-color: cadetblue;
+    align-self: center;
+}
+
+.new{
+    height: 50px;
+    width: 200px;
+    align-self: flex-end;
+    margin-top: 50px;
+}
